@@ -1,198 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>my website</title>
+  <title>my website</title>
 </head>
 <body>
-	<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet" type="text/css">
 <style>
 
-  h2 {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 60px;
  
-
-  }
-  #shadow{
-text-shadow: -0.1em 0.1em #333;
-font-size: 60px;
-  }
-  #color{
-  	
-  background: -webkit-linear-gradient(#FD1701, #FDF704);
- -webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-  }
-  p {
-    font-size: 16px;
-    font-family: Monospace;
-  }
-
-  .thick-green-border {
-    border-color: green;
-    border-width: 10px;
-    border-style: solid;
-    border-radius: 50%;
-  }
-
-  .smaller-image {
-    width: 100px;
-  }
-</style>
-<script>
-  $(document).ready(function() {
-    $("#target1").css("color", "red");
-    $("#target1").prop("disabled", true);
-    $("#target4").remove();
-    $("#target2").appendTo("#right-well");
-    $("#target5").clone().appendTo("#left-well");
-    $("#target1").parent().css("background-color", "red");
-    $("#right-well").children().css("color", "orange");
-    $("#left-well").children().css("color", "green");
-    $(".target:nth-child(2)").addClass("animated bounce");
-    $(".target:even").addClass("animated shake");
-$("body").addClass("animated fadeOut");
-$("body").addClass("animated hinge");
-  });
-</script>
-<h2 align=center id="color">Mimmy's website</h2>
-<h2 align=center id="shadow">Mimmy's website</h2>
-<p>Click here for <a href="#">cat photos</a>.</p>
-
-
-<a href="#"><img class="smaller-image thick-green-border" src="https://bit.ly/fcc-relaxing-cat" alt="A cute orange cat lying on its back."></a>
-
-<p>Things cats love:</p>
-<ul>
-  <li>cat nip</li>
-  <li>laser pointers</li>
-  <li>lasagna</li>
-</ul>
-<p>Top 3 things cats hate:</p>
-<ol>
-  <li>flea treatment</li>
-  <li>thunder</li>
-  <li>other cats</li>
-</ol>
-<form action="https://freecatphotoapp.com/submit-cat-photo">
-  <label><input type="radio" name="indoor-outdoor"> Indoor</label>
-  <label><input type="radio" name="indoor-outdoor"> Outdoor</label>
-  <label><input type="checkbox" name="personality"> Loving</label>
-  <label><input type="checkbox" name="personality"> Lazy</label>
-  <label><input type="checkbox" name="personality"> Crazy</label>
-  <input type="text" placeholder="cat photo URL" required>
-  <button type="submit">Submit</button>
-</form>
-
-
-<!-- html5 新增download，可以用來預設下載檔名 -->
-<a id="save" href="#" download="dl.png" >Save Canvas</a>
-<div class="demo">
-<!-- 調整色彩 -->
-  <div class="color">
-  R<input id="red" type="range" name="points" min="0" max="255" value="0"><br>
-  G<input id="green" type="range" name="points" min="0" max="255" value="0"><br>
-  B<input id="blue" type="range" name="points" min="0" max="255" value="0">
-  </div>
-  <div class="value">
-    R<input id="vred" type="text" value="0">
-    G<input id="vgreen" type="text" value="0">
-    B<input id="vblue" type="text" value="0">
-  </div>
-<!-- 調整色彩end -->
-<!-- Canvas -->
-  <canvas id="canvas" width="400" height="400">
-    Sorry, your browser doesn't support the &lt;canvas&gt; element.
-  </canvas>
-<!-- Canvas end -->
-<!-- 下載 -->
-  <a id="save" href="#" download="aShareaDay.png" class="color-btn-green">Save Canvas</a>
-<!-- 下載end -->
-
-
-$('.color input').change(function(){
-    r = $('#red').val();
-    g = $('#green').val();
-    b = $('#blue').val();
-    changeColor(r,g,b);
-    //取出input中的數值
-  });
-
-function changeColor(r,g,b){
-  ctx.strokeStyle = "rgb("+r+","+g+","+b+")"  
-  //將數值寫入到 strokeStyle內即可
-};
-var _canvas = document.getElementById('canvas');
-var ctx = _canvas.getContext('2d');  
-
-$('.color input').change(function(){
-  r = $('#red').val();
-  g = $('#green').val();
-  b = $('#blue').val();
-  changeColor(r,g,b);
-  //取出input中的數值
-});
-
-function changeColor(r,g,b){
-  colors = {
-    red : r,
-    green : g,
-    blue : b
-  }
-  $.each(colors, function(_color, _value) {
-    $('#v'+_color).val(_value);
-  });
-  ctx.strokeStyle = "rgb("+r+","+g+","+b+")" ;
-  //將顏色的值寫到ctx.strokeStyle即可
-};
-
-var x = 0;
-var y = 0;
-
-function getMousePos(canvas, evt) {
-  var rect = canvas.getBoundingClientRect();
-  //getBoundingClientRect 取得物件完整座標資訊，包含寬高等
-  return {
-    x: evt.clientX - rect.left,
-    y: evt.clientY - rect.top
-  };   
-  //這個function將會傳回滑鼠在 _canvas上的座標
-};
-
-function mouseMove(evt) {
-  var mousePos = getMousePos(_canvas, evt);
-  //透過getMousePos function 去取得滑鼠座標
-  //mousePos 是一個物件，包含x和y的值
-  ctx.lineTo(mousePos.x, mousePos.y);
-  //利用取回的值畫線
-  ctx.stroke();
-  //畫!
-};
-
-canvas.addEventListener('mousedown', function(evt) {
-  var mousePos = getMousePos(_canvas, evt);
-  //從按下去就會執行第一次的座標取得
-  evt.preventDefault();
-  ctx.beginPath();
-  //建立path物件
-  ctx.moveTo(mousePos.x, mousePos.y);  
-  //每次的點用moveTo去區別開，如果用lineTo會連在一起  
-  canvas.addEventListener('mousemove', mouseMove, false);
-  //mousemove的偵聽也在按下去的同時開啟
-});
-
-canvas.addEventListener('mouseup', function() {
-  canvas.removeEventListener('mousemove', mouseMove, false);
-}, false);
-//如果滑鼠放開，將會停止mouseup的偵聽
-
-$('#save').on('click', function(){
-  var _url = _canvas.toDataURL();
-  //利用toDataURL() 把canvas轉成data:image
-  this.href = _url;
-  //再把href載入上面的Data:image
-});
-</div>
-
+  .text{
+    font-family: 'Press Start 2P', cursive;
+  font-size: 60px;
+  margin-bottom: -60px;
+    color: #000;
+    position:absolute; left:25%;
+    text-align: center;
+    background-image: -webkit-linear-gradient(#FD1701, #FDF704,#FD1701);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.shadow{
+ 
+    text-align:center;
+    font-family: 'Press Start 2P', cursive;
+  font-size: 60px;
+  color: #000;
+  position:absolute; left:25%;
+  text-shadow: 
+  -1px 1px 0 #000,
+  -1.5px 1.5px 0 #000,
+  -2px 2px 0 #000,
+  -2.5px 2.5px 0 #000,
+  -3px 3px 0 #000,
+  -3.5px 3.5px 0 #000,
+  -4px 4px 0 #000,
+  -4.5px 4.5px 0 #000,
+  -5px 5px 0 #000,
+  -5.5px 5.5px 0 #000,
+  -6px 6px 0 #000,
+  -6.5px 6.5px 0 #000;
+}
+p{
+  font-family: 'VT323', monospace;
+}
+</style> 
+<div class="shadow">Mimmy's Website</div>
+<div class="text">Mimmy's Website</div>
 </body>
 </html>
