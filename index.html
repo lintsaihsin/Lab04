@@ -3,15 +3,31 @@
 <head>
   <title>my website</title>
 </head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+$(document).ready(function(){
+  $("#button1").click(function(){
+  $("#p1").fadeToggle("slow");
+  });
+  $("#button2").click(function(){
+  $("#p2").fadeToggle("slow");
+  });
+  $("#button3").click(function(){
+ $("#p3").fadeToggle("slow");
+  });
+  $("#button4").click(function(){
+ $("#p4").fadeToggle("slow");
+  });
+});
+</script>
 <body>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet" type="text/css">
 <style>
-
- 
-  .text{
+.text{
     font-family: 'Press Start 2P', cursive;
   font-size: 60px;
-  margin-bottom: -60px;
+
     color: #000;
     position:absolute; left:25%;
     text-align: center;
@@ -42,9 +58,43 @@
 }
 p{
   font-family: 'VT323', monospace;
+   font-size: 60px;
+
+}
+button{
+  font-family: 'VT323', monospace;
+   font-size: 60px;
 }
 </style> 
 <div class="shadow">Mimmy's Website</div>
 <div class="text">Mimmy's Website</div>
+<p id="demo" ></p>
+<script>
+var d = new Date();
+document.getElementById("demo").innerHTML = d.toLocaleString('en-US', { hour12: false });
+</script>
+<br><br><br><br><br><br><br>
+
+  <img id="5bc58b48f1420d64980d04d2" alt="" data-title="" data-genially-id="5ee34682f319630d74c48be7" data-disable-titles="0" class="genially-view-item genially-view-image " src="https://images.genial.ly/59e059d30b9c21060cb4c2ec/5bbf17763292ef649e9b810f/de9cc4f5-63f1-40e3-8540-cc3620632e04.gif?genial&amp;1604388831188" style="transform: rotate(0deg); width: 75px; height: 75px; opacity: 1; margin-left: 650px;">
+  <button id="button1" style="margin-left: 50px;">ABOUT ME!!</button>
+  <p  id="p1" style="display: none; margin-left: 780px;">My name is Mimmy</p>
+  <br><br><br><br><br><br>
+  <img id="5bc58b48f1420d64980d04d3" alt="" data-title="" data-genially-id="5ee34682f319630d74c48be7" data-disable-titles="0" class="genially-view-item genially-view-image " src="https://images.genial.ly/59e059d30b9c21060cb4c2ec/5bbf17763292ef649e9b810f/106374b9-1552-41e4-8605-b192eced5138.gif?genial&amp;1604388831195" style="transform: rotate(0deg); width: 75px; height: 75px; opacity: 1; ">
+  <button id="button2">ABOUT ME!!</button>
+  <p id="p2" style="display: none;" >My name is Mimmy</p>
+    <br><br><br><br><br><br>
+  <img id="5bc58b48f1420d64980d04d4" alt="" data-title="" data-genially-id="5ee34682f319630d74c48be7" data-disable-titles="0" class="genially-view-item genially-view-image " src="https://images.genial.ly/59e059d30b9c21060cb4c2ec/5bbf17763292ef649e9b810f/b32f72ad-25ba-49b3-8bab-f390285339c5.gif?genial&amp;1604388831197" style="transform: rotate(0deg); width: 75px; height: 75px; opacity: 1; "> 
+  <button id="button3" >ABOUT ME!!</button>
+  <p id="p3" style="display: none;">My name is Mimmy</p>
+  <br><br><br><br><br><br>
+  <img id="5bc58b48f1420d64980d04d5" alt="" data-title="" data-genially-id="5ee34682f319630d74c48be7" data-disable-titles="0" class="genially-view-item genially-view-image " src="https://images.genial.ly/59e059d30b9c21060cb4c2ec/5bbf17763292ef649e9b810f/175cbb1e-df65-405a-9cd0-cf177e1a2f00.gif?genial&amp;1604388831196" style="transform: rotate(0deg); width: 75px; height: 75px; opacity: 1; ">
+  <button id="button4" >ABOUT ME!!</button>
+  <p id="p4" style="display: none;">My name is Mimmy</p>
+<br><br><br><br><br><br>
+
+<br><br><br><br><br><br>
+
+<img id="5bc58b48f1420d64980d0483" alt="" data-title="" data-genially-id="5ece94c197b6430dadcb6e74" data-disable-titles="0" class="genially-view-item genially-view-image " src="https://images.genial.ly/59e059d30b9c21060cb4c2ec/5bbf17763292ef649e9b810f/03de8493-43f1-4d72-819a-94f0616bf294.gif?genial&amp;1604391744152" style="transform: rotate(0deg); width: 1014px; height: 90px; opacity: 1;">
+
 </body>
 </html>
